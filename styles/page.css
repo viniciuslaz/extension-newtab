@@ -11,19 +11,67 @@
 
 .background-blur,
 .bg-image {
-  transform: scale(
-    1.1
-  );
+  transform: scale(1.1);
   position: absolute;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center center;
   transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-  filter: blur(15px) brightness(90%);
+  filter: blur(6px) brightness(90%);
   z-index: 1;
 }
 
 .background-blur {
   z-index: 0;
+}
+
+#interface {
+  position: relative;
+  display: grid;
+  width: 100%;
+  gap: 1em;
+  max-width: 1600px;
+  min-height: 100dvh;
+  padding: 4em 1em 6em;
+  margin: 0 auto;
+  box-sizing: border-box;
+  will-change: transform;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight) !important;
+  font-family: var(--font-family);
+  transition: opacity 0.1s, transform 0.4s;
+  text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+  grid-template-areas: "time" "weather" "other";
+  color: #fff;
+}
+
+#time {
+  grid-area: time;
+  place-self: center;
+  position: relative;
+}
+
+#weather {
+  grid-area: weather;
+  place-self: center;
+  position: relative;
+}
+
+#other {
+  grid-area: other;
+  place-self: center;
+  position: relative;
+}
+
+#digital {
+  margin: 0 0 0.1em;
+  font-size: calc(var(--clock-size) * 6);
+  line-height: 1em;
+  font-weight: 200;
+  font-weight: var(--font-weight-clock);
+}
+
+#digital.zero #digital-hh-leading-zero {
+  display: inline;
 }

@@ -3,3 +3,24 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --font-family: -apple-system, system-ui, Ubuntu, Roboto, "Open Sans",
+    "Segoe UI", "Helvetica Neue";
+  --font-size: 0.875em;
+  --font-weight: 300;
+  --font-weight-clock: 200;
+  --text-shadow-alpha: 0.2;
+  --clock-size: 1em;
+  --searchbar-width: 30em;
+  --searchbar-background-alpha: 0.1;
+  --grid: "time" "weather" "other";
+  --background-blur: 7px;
+  --background-brightness: 0.75;
+  --load-time-transition: 0ms;
+  --links-width: 43em;
+  --page-width: 1600px;
+  --page-gap: 1em;
+  --notes-width: 40em;
+  --notes-background-alpha: 0.1;
+}
