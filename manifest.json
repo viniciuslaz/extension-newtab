@@ -4,10 +4,11 @@
   "version": "1.0",
   "description": "Modifica a página da nova guia.",
   "permissions": [
-    "tabs"
+    "tabs", "storage"
   ],
   "background": {
-    "service_worker": "script/background.js"
+    "service_worker": "script/main.js",
+    "type": "module"
   },
   "chrome_url_overrides": {
     "newtab": "pages/index.html"

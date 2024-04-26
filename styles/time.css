@@ -1,0 +1,18 @@
+#time {
+  grid-area: time;
+  place-self: center;
+  position: relative;
+}
+
+#digital {
+  margin: 0 0 0.1em;
+  font-size: calc(var(--clock-size) * 6);
+  line-height: 1em;
+  font-weight: 200;
+  font-weight: var(--font-weight-clock);
+  display: flex;
+}
+
+#complete-hour {
+  letter-spacing: 1px;
+}

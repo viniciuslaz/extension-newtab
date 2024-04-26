@@ -18,7 +18,7 @@
   background-size: cover;
   background-position: center center;
   transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-  filter: blur(6px) brightness(90%);
+  filter: blur(15px) brightness(60%);
   z-index: 1;
 }
 
@@ -46,12 +46,6 @@
   color: #fff;
 }
 
-#time {
-  grid-area: time;
-  place-self: center;
-  position: relative;
-}
-
 #weather {
   grid-area: weather;
   place-self: center;
@@ -62,16 +56,4 @@
   grid-area: other;
   place-self: center;
   position: relative;
-}
-
-#digital {
-  margin: 0 0 0.1em;
-  font-size: calc(var(--clock-size) * 6);
-  line-height: 1em;
-  font-weight: 200;
-  font-weight: var(--font-weight-clock);
-}
-
-#digital.zero #digital-hh-leading-zero {
-  display: inline;
 }
