@@ -1,29 +1,21 @@
 {
   "manifest_version": 3,
   "name": "Minha Extensão de Nova Guia",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Modifica a página da nova guia.",
   "permissions": [
-    "tabs", "storage"
+    "tabs",
+    "storage"
   ],
   "background": {
-    "service_worker": "script/main.js",
+    "service_worker": "script/background.js",
     "type": "module"
   },
+  "offline_enabled": false,
   "chrome_url_overrides": {
     "newtab": "pages/index.html"
   },
   "action": {
     "default_popup": "pages/popup.html"
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "script/content.js"
-      ]
-    }
-  ]
+  }
 }

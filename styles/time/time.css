@@ -9,7 +9,7 @@
 
 #digital {
   margin: 0 0 0.1em;
-  font-size: calc(var(--clock-size) * 6);
+  font-size: calc(var(--clock-size) * 5.5);
   line-height: 1em;
   font-weight: 200;
   font-weight: var(--font-weight-clock);

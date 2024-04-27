@@ -1,0 +1,16 @@
+#weather {
+  grid-area: weather;
+  place-self: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#greet {
+  margin: 0 0 0.1em;
+  font-size: calc(var(--clock-size) * 3.5);
+  line-height: 1em;
+  font-weight: 400;
+  display: flex;
+}

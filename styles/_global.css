@@ -25,6 +25,20 @@
   --notes-background-alpha: 0.1;
 }
 
+body {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+body.loading > * {
+  opacity: 0;
+}
+
+body.init #interface {
+  transition: opacity var(--load-time-transition);
+}
+
 .display-none {
   display: none;
 }

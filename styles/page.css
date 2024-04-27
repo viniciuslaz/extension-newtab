@@ -40,16 +40,10 @@
   font-size: var(--font-size);
   font-weight: var(--font-weight) !important;
   font-family: var(--font-family);
-  transition: opacity 0.1s, transform 0.4s;
+  transition: opacity 00ms, transform 0.4s;
   text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
   grid-template-areas: "time" "weather" "other";
   color: #fff;
-}
-
-#weather {
-  grid-area: weather;
-  place-self: center;
-  position: relative;
 }
 
 #other {
