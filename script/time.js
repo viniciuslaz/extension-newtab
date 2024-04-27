@@ -14,6 +14,7 @@ function getCurrentTime() {
 }
 
 export async function clock() {
+  start();
   clearInterval(clockInterval);
   clockInterval = setInterval(start, 1000);
 

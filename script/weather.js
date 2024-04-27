@@ -9,11 +9,11 @@ export async function getWeather() {
       city ? city : "rolante"
     }`;
 
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Erro ao carregar a página. Status:", response.status);
-    }
-    return response.json();
+    await fetch(url).then(async (response) => {
+      const retorno = await response.json();
+      console.log(retorno)
+      document.getElementById("weather").innerHTML = retorno.current.temp_c;
+    });
   } catch (error) {
     throw error;
   }

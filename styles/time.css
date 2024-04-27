@@ -2,6 +2,9 @@
   grid-area: time;
   place-self: center;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #digital {

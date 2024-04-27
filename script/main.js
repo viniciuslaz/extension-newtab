@@ -1,17 +1,11 @@
 import { getWeather } from "./weather.js";
 import { clock } from "./time.js";
+import { day } from "./day.js";
 
 try {
-  getWeather()
-    .then((data) => {
-      console.log(data);
-      document.getElementById("weather").innerHTML = data.location.name;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-
+  getWeather();
   clock();
+  day();
 } catch (error) {
   console.log(error);
 }

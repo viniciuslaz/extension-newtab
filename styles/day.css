@@ -1,0 +1,8 @@
+#fullDayWeek {
+  margin: 0 0 0.1em;
+  font-size: calc(var(--clock-size) * 1.5);
+  line-height: 1em;
+  font-weight: 400;
+  display: flex;
+  gap: 6px;
+}
