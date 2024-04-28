@@ -1,31 +1,42 @@
 export async function getWeather() {
   try {
-    let ip_user;
-    await fetch("https://api.ipify.org?format=json").then(async (response) => {
-      const retorno = await response.json();
-      ip_user = retorno.ip;
-    });
+    let city_storage = localStorage.getItem("city");
 
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=01274ecb976f48409c200638242604&q=${ip_user}&lang=pt`;
+    if (city_storage) {
+      const regex = city_storage.match(/[a-zA-Z]/g);
+      city_storage = regex ? regex.join("") : undefined;
+    }
 
-    await fetch(url).then(async (response) => {
-      const retorno = await response.json();
-      console.log(retorno);
-      document.getElementById(
-        "first-information"
-      ).innerHTML = `${retorno.current.condition.text}. Atualmente faz ${retorno.current.temp_c}°`;
+    if (!city_storage) {
+      localStorage.setItem("city", "rolante");
+    }
 
-      document.getElementById(
-        "second-information"
-      ).innerHTML = `Com maxima de ${retorno.forecast.forecastday[0].day.maxtemp_c}° para hoje`;
+    const url = `http://api.weatherapi.com/v1/forecast.json?key=01274ecb976f48409c200638242604&lang=pt&q=${
+      city_storage ? city_storage : "rolante"
+    }`;
 
-      /*const currentImg = document.getElementById("current-img");
-      currentImg.src = retorno.current.condition.icon;*/
+    await fetch(url)
+      .then(async (response) => {
+        const retorno = await response.json();
+        document.getElementById(
+          "first-information"
+        ).innerHTML = `${retorno.current.condition.text}. Atualmente faz ${retorno.current.temp_c}°`;
 
-      document.getElementById(
-        "current-temp"
-      ).innerHTML = `${retorno.current.temp_c}°`;
-    });
+        document.getElementById(
+          "second-information"
+        ).innerHTML = `Com maxima de ${retorno.forecast.forecastday[0].day.maxtemp_c}° para hoje`;
+
+        const currentImg = document.getElementById("current-img");
+        currentImg.src = `https://${retorno.current.condition.icon}`;
+        currentImg.classList.remove("display-none");
+
+        document.getElementById(
+          "current-temp"
+        ).innerHTML = `${retorno.current.temp_c}°`;
+      })
+      .catch(function (error) {
+        console.log("Ocorreu um erro com a sua solicitacao! " + error.message);
+      });
   } catch (error) {
     throw error;
   }

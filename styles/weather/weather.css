@@ -10,5 +10,16 @@
 #image-weather {
   margin-top: 6px;
   display: flex;
+  align-items: center;
   gap: 6px;
+}
+
+#current-img {
+  height: 100%;
+}
+
+#current-temp {
+  font-size: calc(var(--clock-size) * 2.5);
+  font-weight: 400;
+  margin-bottom: 0;
 }

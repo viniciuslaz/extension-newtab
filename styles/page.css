@@ -24,7 +24,7 @@
   background-size: cover;
   background-position: center center;
   transition: opacity 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-  filter: blur(15px) brightness(60%);
+  filter: blur(15px) brightness(40%);
   z-index: 1;
 }
 
