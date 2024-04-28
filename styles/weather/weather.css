@@ -7,10 +7,8 @@
   align-items: center;
 }
 
-#greet {
-  margin: 0 0 0.1em;
-  font-size: calc(var(--clock-size) * 3.5);
-  line-height: 1em;
-  font-weight: 400;
+#image-weather {
+  margin-top: 6px;
   display: flex;
+  gap: 6px;
 }

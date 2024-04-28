@@ -1,3 +1,9 @@
+@import "./time/day.css";
+@import "./time/time.css";
+@import "./weather/greeting.css";
+@import "./weather/informations.css";
+@import "./weather/weather.css";
+
 .background {
   z-index: -1;
   position: fixed;

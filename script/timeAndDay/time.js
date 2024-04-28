@@ -1,6 +1,6 @@
 let clockInterval;
-let _hours = 0;
-let _minutes = 0;
+let _hours;
+let _minutes;
 
 function getCurrentTime() {
   const now = new Date();

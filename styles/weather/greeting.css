@@ -1,0 +1,8 @@
+#greet {
+  margin: 0 0 0.1em;
+  font-size: calc(var(--clock-size) * 3);
+  line-height: 1em;
+  font-weight: 400;
+  display: flex;
+  text-align: center;
+}
