@@ -1,17 +1,23 @@
+import { convertKelvinToCelcius } from "./utils/convertKelvinToCelcius.js";
+
 function setData(retorno) {
-  document.getElementById(
-    "first-information"
-  ).innerHTML = `${retorno.weather[0].description}. Atualmente faz ${retorno.main.temp}°`;
+  document.getElementById("first-information").innerHTML = `${
+    retorno.weather[0].description
+  }. Atualmente faz ${convertKelvinToCelcius(retorno.main.temp)}°`;
 
   document.getElementById(
     "second-information"
-  ).innerHTML = `Com maxima de ${retorno.main.temp_max}° para hoje`;
+  ).innerHTML = `Com maxima de ${convertKelvinToCelcius(
+    retorno.main.temp_max
+  )}° para hoje`;
 
   /*const currentImg = document.getElementById("current-img");
   currentImg.src = `https://${retorno.current.condition.icon}`;
   currentImg.classList.remove("display-none");*/
 
-  document.getElementById("current-temp").innerHTML = `${retorno.main.temp}°`;
+  document.getElementById("current-temp").innerHTML = `${convertKelvinToCelcius(
+    retorno.main.temp
+  )}°`;
 }
 
 export async function getWeather() {
