@@ -1,5 +1,26 @@
+function setData(retorno) {
+  document.getElementById(
+    "first-information"
+  ).innerHTML = `${retorno.weather[0].description}. Atualmente faz ${retorno.main.temp}°`;
+
+  document.getElementById(
+    "second-information"
+  ).innerHTML = `Com maxima de ${retorno.main.temp_max}° para hoje`;
+
+  /*const currentImg = document.getElementById("current-img");
+  currentImg.src = `https://${retorno.current.condition.icon}`;
+  currentImg.classList.remove("display-none");*/
+
+  document.getElementById("current-temp").innerHTML = `${retorno.main.temp}°`;
+}
+
 export async function getWeather() {
   try {
+    let oldData = localStorage.getItem("weather");
+    if (oldData) {
+      setData(JSON.parse(oldData));
+    }
+
     let city_storage = localStorage.getItem("city");
 
     if (city_storage) {
@@ -11,28 +32,14 @@ export async function getWeather() {
       localStorage.setItem("city", "rolante");
     }
 
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=01274ecb976f48409c200638242604&lang=pt&q=${
-      city_storage ? city_storage : "rolante"
-    }`;
+    const url = `http://15.228.13.27:4000/current`;
 
     await fetch(url)
       .then(async (response) => {
         const retorno = await response.json();
-        document.getElementById(
-          "first-information"
-        ).innerHTML = `${retorno.current.condition.text}. Atualmente faz ${retorno.current.temp_c}°`;
+        localStorage.setItem("weather", JSON.stringify(retorno));
 
-        document.getElementById(
-          "second-information"
-        ).innerHTML = `Com maxima de ${retorno.forecast.forecastday[0].day.maxtemp_c}° para hoje`;
-
-        const currentImg = document.getElementById("current-img");
-        currentImg.src = `https://${retorno.current.condition.icon}`;
-        currentImg.classList.remove("display-none");
-
-        document.getElementById(
-          "current-temp"
-        ).innerHTML = `${retorno.current.temp_c}°`;
+        setData(retorno);
       })
       .catch(function (error) {
         console.log("Ocorreu um erro com a sua solicitacao! " + error.message);

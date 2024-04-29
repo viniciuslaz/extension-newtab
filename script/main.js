@@ -8,15 +8,15 @@ window.onload = async function () {
     const elementBackground = document.querySelector(".background");
     if (elementBackground) elementBackground.style.opacity = 1;
 
-    await getWeather();
-    await clock();
-    await day();
-    await greeting();
-
     setTimeout(() => {
       const elementBody = document.querySelector("body");
       elementBody.className = "";
     }, 0);
+
+    getWeather();
+    clock();
+    day();
+    greeting();
   } catch (error) {
     console.error(error);
   }
